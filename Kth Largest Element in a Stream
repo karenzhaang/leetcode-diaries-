@@ -4,3 +4,58 @@ Implement the following methods:
 
 constructor(int k, int[] nums) Initializes the object given an integer k and the stream of integers nums.
 int add(int val) Adds the integer val to the stream and returns the kth largest integer in the stream.
+
+
+
+
+Given k = 3 
+
+4, 5, 8, 2 
+Sort the input and find the element 
+
+
+When it is sorted you can use Binary search 
+
+
+def __init__(seld, k: int, nums: List[int]):
+#create a member variable. minHeap with the K largest integers
+  self.minHeap, self.k = nums, k
+# create a sorted propertt 
+heapq.heapify(self.minHeap)
+while len(self.minHeap) >k;
+  heapq.heappop(self.minHeap)
+
+def add(self, val: int) -> int;
+  heapq.heappush(self.minHeap, val)
+  if len(self.minHeap) >k:
+      heapq.heappop(minHeap)
+return min self.minHeap[0]
+
+
+add (3)
+
+find where tgo insert it 
+
+
+Is there a better apporach. 
+
+min heap of size K 
+It has a sorted quality 
+
+can 
+Notes:
+
+You can continue to add humbers 
+
+
+class KthLargest {
+
+    public KthLargest(int k, int[] nums) {
+        
+    }
+    
+    public int add(int val) {
+        
+    }
+}
+
