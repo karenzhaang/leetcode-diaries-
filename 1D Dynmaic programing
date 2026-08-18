@@ -1,0 +1,19 @@
+1D dynamic programming is a coding method that solves a large problem by reaking it into smallelr pieces 
+It uses a single lsit or array to save past answers. This stopsp the computer from doing the same math over and over 
+
+It turns slow code into Fast code 
+
+there is a state a single spot in your list that holds the answer for step i 
+
+Recurrence Rule There is a math ryle that shows how step i uses answers from earlier steps. 
+
+There is a base Case and there is a first startign step that you already know 
+
+
+
+
+Fibonacci Numbers is Finding the next number by adding the last two numbers together 
+
+Climbining Stairs is counting how many wyas you can reachc the top id you can take one of two steps at a time
+
+House Robeber: Finfind the most money you can get from houses in a row without robbing two side by side houses.
