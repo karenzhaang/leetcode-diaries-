@@ -1,0 +1,30 @@
+Bactracking is a recursive technique 
+
+def backtrack (state, choices, result):
+  #1. Base Case: Check if a valid solution is reached
+  if is_solution(state):
+    result.append(list(state)) 
+    return
+
+for choice in choices:
+    if is_valid(choice, state):
+    # CHOOSE: Modify state
+    state.append(choice)
+
+    # Explore: (Recurse with updated state)
+    backtrack(state, choices, result)
+    # UNCHOOSE: undo choice (Backtrack)
+    state.pop()
+
+
+Pure brute force has no opmization while backtracking means that you can do pruning. Backtracking builds a step by step solution 
+and it is efficincy. It is highly inefficient and evulates useless paths if you are using brute forcee solutions
+
+
+Backtracking algorithm make sit so that you can abandon dead ends early and it saves ime and CPU cycles on complex constraits 
+
+
+The time complexity is often o(b^h) where b is the branchign factor and h is the height of the decision tree. Prunign reduces the average runtime
+
+
+Space Complexity. The space complexity is Generally O(h) because the system stack depth equals the maximum height of the recursion tree
