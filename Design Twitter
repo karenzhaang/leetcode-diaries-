@@ -1,0 +1,53 @@
+Implement a simplified version of Twitter which allows users to post tweets, follow/unfollow each other, and view the 10 most recent tweets within their own news feed.
+
+Users and tweets are uniquely identified by their IDs (integers).
+
+Implement the following methods:
+
+Twitter() Initializes the twitter object.
+void postTweet(int userId, int tweetId) Publish a new tweet with ID tweetId by the user userId. You may assume that each tweetId is unique.
+List<Integer> getNewsFeed(int userId) Fetches at most the 10 most recent tweet IDs in the user's news feed. Each item must be posted by users who the user is following or by the user themself. Tweets IDs should be ordered from most recent to least recent.
+void follow(int followerId, int followeeId) The user with ID followerId follows the user with ID followeeId.
+void unfollow(int followerId, int followeeId) The user with ID followerId unfollows the user with ID followeeId.
+
+
+public class Twitter {
+    private int time;
+    private Map<Integer, Set<Integer>> followMap;
+    private Map<Integer, List<int[]>> tweetMap;
+
+    public Twitter() {
+        time = 0;
+        followMap = new HashMap<>();
+        tweetMap = new HashMap<>();
+    }
+
+    public void postTweet(int userId, int tweetId) {
+        tweetMap.putIfAbsent(userId, new ArrayList<>());
+        tweetMap.get(userId).add(new int[]{time++, tweetId});
+    }
+
+    public List<Integer> getNewsFeed(int userId) {
+        List<int[]> feed = new ArrayList<>(tweetMap.getOrDefault(userId, new ArrayList<>()));
+        for (int followeeId : followMap.getOrDefault(userId, new HashSet<>())) {
+            feed.addAll(tweetMap.getOrDefault(followeeId, new ArrayList<>()));
+        }
+        feed.sort((a, b) -> b[0] - a[0]);
+        List<Integer> res = new ArrayList<>();
+        for (int i = 0; i < Math.min(10, feed.size()); i++) {
+            res.add(feed.get(i)[1]);
+        }
+        return res;
+    }
+
+    public void follow(int followerId, int followeeId) {
+        if (followerId != followeeId) {
+            followMap.putIfAbsent(followerId, new HashSet<>());
+            followMap.get(followerId).add(followeeId);
+        }
+    }
+
+    public void unfollow(int followerId, int followeeId) {
+        followMap.getOrDefault(followerId, new HashSet<>()).remove(followeeId);
+    }
+}
