@@ -5,7 +5,7 @@ A trie is a specialized tree based data structure used to store and retrieve key
 A trie breaks down words into indiciidual cahracters and shares common prefixes amound them
 
 
-for example id you stire the words
+for example is you stire the words
 
 "CAT" "CAR" and "CART"
 
@@ -15,10 +15,12 @@ Then the trie reuses them into a shared "CA" path for all three words.
 The edges and child nodes there each is a path or a link downward wich represents a specific character
 
 
-End of a word Flag has a node which conctains a boolean flag and this differtiates a standalone word form a prefix 
+End of a word Flag has a node which contains a boolean flag and this differtiates a standalone word form a prefix 
 
 
 The advantage of a trie is speed and there is a fast look up time and no hash collision. There is prefix mathcinging so it can instantly pull all words starting with a specific seuence 
 
-There is a trade-off Memory. As tries are incredibliy fast so they can be highly space-inefficent. Every single node requites pointers or look up tables to manange its potnetial child letters. 
+There is a trade-off Memory. As tries are incredibliy fast so they can be highly space-inefficent. Every single node requites pointers or look up tables to manange its potnetial child letters.
+
+reread
 
