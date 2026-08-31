@@ -1,0 +1,9 @@
+It's a pattern for problems about contiguous subarrays or substrings. Instead of checking every possible subarray (O(n²) or worse), you keep two pointers marking the start and end of a "window" and slide it across the array once, in O(n).
+
+The key insight: when you move the window, you don't recompute everything inside it. You add what enters on the right and subtract what leaves on the left.
+
+There are two flavors:
+
+Fixed window — the size is given. "Max sum of any 5 consecutive elements." Move both pointers together in lockstep.
+
+Variable window — the size depends on a condition. "Longest substring with no repeated characters." You expand the right pointer greedily, and when the window becomes invalid, you shrink from the left until it's valid again
