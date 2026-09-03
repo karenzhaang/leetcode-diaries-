@@ -1,0 +1,20 @@
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        
+        Hashmap<String> map = new Hashmap<String>();
+        String word = "";
+        for(int i = 0; i < s.length;i++){
+        if(!map.contains(s.charAt(i)))   {
+            map.add(s.charAt(i));
+            word += s.charAt(i);
+
+        }else{
+            map = new Hashmap<String>();
+        }
+        }
+
+
+
+        }
+        
+    }
